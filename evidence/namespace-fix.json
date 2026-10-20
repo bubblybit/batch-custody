@@ -1,0 +1,8 @@
+{
+  "previous_source_sha256": "f759520160182c7da0cf4f0f31192c4367ed8bb620149f42e46b95aa63cb6c8a",
+  "regressions": 2,
+  "red": "evidence/tdd-dot-repository-red.log",
+  "green": "evidence/verification.json",
+  "scope": "Reject dot repository segments before a 40-hex commit locator. Exact content SHA256 binding was never bypassed.",
+  "deployed": false
+}

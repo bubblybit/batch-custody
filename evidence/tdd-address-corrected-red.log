@@ -1,0 +1,538 @@
+FFFFFFFFFFFFFFFFFFFF                                                     [100%]
+================================== FAILURES ===================================
+___________ test_named_acceptance_splits_conserved_public_manifest ____________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B14A23CE0>
+
+    def test_named_acceptance_splits_conserved_public_manifest(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c);oid=offer(c,root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B14A23CE0>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B14A54F80>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+____________________ test_only_named_recipient_can_accept _____________________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B14BBC720>
+
+    def test_only_named_recipient_can_accept(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c);oid=offer(c,root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:50: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B14BBC720>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B14C21BB0>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+______________ test_locked_and_spent_inputs_cannot_double_split _______________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B14C45B20>
+
+    def test_locked_and_spent_inputs_cannot_double_split(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c);oid=offer(c,root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B14C45B20>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B14C69910>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+______________ test_downstream_holder_can_transfer_received_lot _______________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B14CD3740>
+
+    def test_downstream_holder_can_transfer_received_lot(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c);oid=offer(c,root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B14CD3740>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B14D4FC50>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+__________ test_cancellation_retains_revision_and_burns_sender_nonce __________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B14CD3600>
+
+    def test_cancellation_retains_revision_and_burns_sender_nonce(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c);oid=offer(c,root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B14CD3600>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B14DC1FA0>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+_____________ test_expiry_boundary_allows_anyone_cleanup_offline ______________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B14DFDE40>
+
+    def test_expiry_boundary_allows_anyone_cleanup_offline(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c);oid=offer(c,root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:83: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B14DFDE40>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B14E0EA50>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+___________________ test_unauthorized_issue_propose_cancel ____________________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B14E8BCE0>
+
+    def test_unauthorized_issue_propose_cancel(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c);oid=offer(c,root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:95: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B14E8BCE0>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B14C43BF0>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+_________________ test_bad_quantities_never_reserve[amounts0] _________________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B14F41620>
+amounts = {'guide': 11}
+
+    @pytest.mark.parametrize('amounts',[{'guide':11},{'unknown':1},{'guide':0},{'guide':True},{'guide':-1},{}])
+    def test_bad_quantities_never_reserve(direct_vm,direct_deploy,amounts):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B14F41620>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B14FAF740>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+_________________ test_bad_quantities_never_reserve[amounts1] _________________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B14FB7380>
+amounts = {'unknown': 1}
+
+    @pytest.mark.parametrize('amounts',[{'guide':11},{'unknown':1},{'guide':0},{'guide':True},{'guide':-1},{}])
+    def test_bad_quantities_never_reserve(direct_vm,direct_deploy,amounts):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B14FB7380>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B14D65EE0>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+_________________ test_bad_quantities_never_reserve[amounts2] _________________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B150802C0>
+amounts = {'guide': 0}
+
+    @pytest.mark.parametrize('amounts',[{'guide':11},{'unknown':1},{'guide':0},{'guide':True},{'guide':-1},{}])
+    def test_bad_quantities_never_reserve(direct_vm,direct_deploy,amounts):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B150802C0>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B150A18E0>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+_________________ test_bad_quantities_never_reserve[amounts3] _________________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B15101C60>
+amounts = {'guide': True}
+
+    @pytest.mark.parametrize('amounts',[{'guide':11},{'unknown':1},{'guide':0},{'guide':True},{'guide':-1},{}])
+    def test_bad_quantities_never_reserve(direct_vm,direct_deploy,amounts):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B15101C60>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B15127FE0>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+_________________ test_bad_quantities_never_reserve[amounts4] _________________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B15193A60>
+amounts = {'guide': -1}
+
+    @pytest.mark.parametrize('amounts',[{'guide':11},{'unknown':1},{'guide':0},{'guide':True},{'guide':-1},{}])
+    def test_bad_quantities_never_reserve(direct_vm,direct_deploy,amounts):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B15193A60>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B14E8CA70>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+_________________ test_bad_quantities_never_reserve[amounts5] _________________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B15230C20>
+amounts = {}
+
+    @pytest.mark.parametrize('amounts',[{'guide':11},{'unknown':1},{'guide':0},{'guide':True},{'guide':-1},{}])
+    def test_bad_quantities_never_reserve(direct_vm,direct_deploy,amounts):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:103: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B15230C20>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B15203FE0>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+________ test_changed_source_prevents_accept_without_destroying_offer _________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B152BAA20>
+
+    def test_changed_source_prevents_accept_without_destroying_offer(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c);oid=offer(c,root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B152BAA20>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B15313B60>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+___________ test_validator_recomputes_all_content_and_offer_binding ___________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B153644A0>
+
+    def test_validator_recomputes_all_content_and_offer_binding(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c);oid=offer(c,root)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:118: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B153644A0>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B15355CD0>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+____________ test_manifest_is_strict_and_content_locked[duplicate] ____________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B153F16C0>
+kind = 'duplicate'
+
+    @pytest.mark.parametrize('kind',['duplicate','boolean','mutable','wrong-sha'])
+    def test_manifest_is_strict_and_content_locked(direct_vm,direct_deploy,kind):
+>       c=deploy(direct_vm,direct_deploy);serve(direct_vm);m=copy.deepcopy(MANIFEST)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:127: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B153F16C0>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B153D3320>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+_____________ test_manifest_is_strict_and_content_locked[boolean] _____________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B15483240>
+kind = 'boolean'
+
+    @pytest.mark.parametrize('kind',['duplicate','boolean','mutable','wrong-sha'])
+    def test_manifest_is_strict_and_content_locked(direct_vm,direct_deploy,kind):
+>       c=deploy(direct_vm,direct_deploy);serve(direct_vm);m=copy.deepcopy(MANIFEST)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:127: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B15483240>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B15509400>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+_____________ test_manifest_is_strict_and_content_locked[mutable] _____________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B15530860>
+kind = 'mutable'
+
+    @pytest.mark.parametrize('kind',['duplicate','boolean','mutable','wrong-sha'])
+    def test_manifest_is_strict_and_content_locked(direct_vm,direct_deploy,kind):
+>       c=deploy(direct_vm,direct_deploy);serve(direct_vm);m=copy.deepcopy(MANIFEST)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:127: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B15530860>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B15525AC0>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+____________ test_manifest_is_strict_and_content_locked[wrong-sha] ____________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B155BA0C0>
+kind = 'wrong-sha'
+
+    @pytest.mark.parametrize('kind',['duplicate','boolean','mutable','wrong-sha'])
+    def test_manifest_is_strict_and_content_locked(direct_vm,direct_deploy,kind):
+>       c=deploy(direct_vm,direct_deploy);serve(direct_vm);m=copy.deepcopy(MANIFEST)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:127: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B155BA0C0>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B155B1640>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+_____________ test_invalid_receiver_ttl_and_revision_do_not_lock ______________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x0000019B1564F6A0>
+
+    def test_invalid_receiver_ttl_and_revision_do_not_lock(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:135: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+build = <function direct_deploy.<locals>._deploy at 0x0000019B1564F6A0>
+
+    def deploy(vm,build):
+        vm.warp('2026-10-21T00:00:00Z')
+        c=build(str(ROOT/'batch_custody.py'),sdk_version='v0.2.12')
+>       assert hasattr(c,'open_batch'),'BatchCustody API not implemented'
+E       AssertionError: BatchCustody API not implemented
+E       assert False
+E        +  where False = hasattr(<CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x0000019B156A1790>>, 'open_batch')
+
+tests\test_custody.py:22: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_custody.py::test_named_acceptance_splits_conserved_public_manifest
+FAILED tests/test_custody.py::test_only_named_recipient_can_accept - Assertio...
+FAILED tests/test_custody.py::test_locked_and_spent_inputs_cannot_double_split
+FAILED tests/test_custody.py::test_downstream_holder_can_transfer_received_lot
+FAILED tests/test_custody.py::test_cancellation_retains_revision_and_burns_sender_nonce
+FAILED tests/test_custody.py::test_expiry_boundary_allows_anyone_cleanup_offline
+FAILED tests/test_custody.py::test_unauthorized_issue_propose_cancel - Assert...
+FAILED tests/test_custody.py::test_bad_quantities_never_reserve[amounts0] - A...
+FAILED tests/test_custody.py::test_bad_quantities_never_reserve[amounts1] - A...
+FAILED tests/test_custody.py::test_bad_quantities_never_reserve[amounts2] - A...
+FAILED tests/test_custody.py::test_bad_quantities_never_reserve[amounts3] - A...
+FAILED tests/test_custody.py::test_bad_quantities_never_reserve[amounts4] - A...
+FAILED tests/test_custody.py::test_bad_quantities_never_reserve[amounts5] - A...
+FAILED tests/test_custody.py::test_changed_source_prevents_accept_without_destroying_offer
+FAILED tests/test_custody.py::test_validator_recomputes_all_content_and_offer_binding
+FAILED tests/test_custody.py::test_manifest_is_strict_and_content_locked[duplicate]
+FAILED tests/test_custody.py::test_manifest_is_strict_and_content_locked[boolean]
+FAILED tests/test_custody.py::test_manifest_is_strict_and_content_locked[mutable]
+FAILED tests/test_custody.py::test_manifest_is_strict_and_content_locked[wrong-sha]
+FAILED tests/test_custody.py::test_invalid_receiver_ttl_and_revision_do_not_lock
+20 failed in 2.40s
+WARNING: File `gltest.config.yaml` not found in the current directory, using default config, create a `gltest.config.yaml` file to manage multiple networks
+INFO: Clearing artifacts directory: artifacts
+INFO: Using the following configuration:
+INFO:   RPC URL: http://127.0.0.1:4000/api
+INFO:   Selected Network: localnet
+INFO:   Available networks: ['localnet', 'studionet', 'testnet_asimov', 'testnet_bradbury']
+INFO:   Selected chain type: localnet
+INFO:   Available chains: localnet, studionet, testnet_asimov, testnet_bradbury
+INFO:   Contracts directory: contracts
+INFO:   Artifacts directory: artifacts
+INFO:   Environment: .env
+INFO:   Default wait interval: 3000 ms
+INFO:   Default wait retries: 50
+INFO:   Leader only mode: False

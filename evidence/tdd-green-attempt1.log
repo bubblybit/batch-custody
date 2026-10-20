@@ -1,0 +1,312 @@
+WARNING: File `gltest.config.yaml` not found in the current directory, using default config, create a `gltest.config.yaml` file to manage multiple networks
+INFO: Clearing artifacts directory: artifacts
+INFO: Using the following configuration:
+INFO:   RPC URL: http://127.0.0.1:4000/api
+INFO:   Selected Network: localnet
+INFO:   Available networks: ['localnet', 'studionet', 'testnet_asimov', 'testnet_bradbury']
+INFO:   Selected chain type: localnet
+INFO:   Available chains: localnet, studionet, testnet_asimov, testnet_bradbury
+INFO:   Contracts directory: contracts
+INFO:   Artifacts directory: artifacts
+INFO:   Environment: .env
+INFO:   Default wait interval: 3000 ms
+INFO:   Default wait retries: 50
+INFO:   Leader only mode: False
+FFFFFFF......FF....F                                                     [100%]
+================================== FAILURES ===================================
+___________ test_named_acceptance_splits_conserved_public_manifest ____________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x000001C4C30A3920>
+
+    def test_named_acceptance_splits_conserved_public_manifest(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c);oid=offer(c,root)
+                                                                      ^^^^^^^^^^^^^
+
+tests\test_custody.py:34: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+c = <CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x000001C4C311A5D0>>
+lot = 'f2fa3b88f0812ba716e338b586d8191020022e78aa0d4f6b27bb46c94002618a'
+receiver = b'_\x7fz\xd0\xea\xb5A\x82l\xc5=\x01kP\x0ch\xb2:\xfc\x7f'
+nonce = 'nonce1', amounts = None, revision = 0, ttl = 60
+
+    def offer(c,lot,receiver=ALICE,nonce='nonce1',amounts=None,revision=0,ttl=60):
+>       return c.propose_transfer('manuals',lot,revision,json.dumps(amounts or {'guide':4,'license':2}),receiver.as_hex,nonce,ttl)
+                                                                                                        ^^^^^^^^^^^^^^^
+E       AttributeError: 'bytes' object has no attribute 'as_hex'
+
+tests\test_custody.py:31: AttributeError
+____________________ test_only_named_recipient_can_accept _____________________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x000001C4C31B9A80>
+
+    def test_only_named_recipient_can_accept(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c);oid=offer(c,root)
+                                                                      ^^^^^^^^^^^^^
+
+tests\test_custody.py:46: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+c = <CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x000001C4C311A5D0>>
+lot = 'f2fa3b88f0812ba716e338b586d8191020022e78aa0d4f6b27bb46c94002618a'
+receiver = b'_\x7fz\xd0\xea\xb5A\x82l\xc5=\x01kP\x0ch\xb2:\xfc\x7f'
+nonce = 'nonce1', amounts = None, revision = 0, ttl = 60
+
+    def offer(c,lot,receiver=ALICE,nonce='nonce1',amounts=None,revision=0,ttl=60):
+>       return c.propose_transfer('manuals',lot,revision,json.dumps(amounts or {'guide':4,'license':2}),receiver.as_hex,nonce,ttl)
+                                                                                                        ^^^^^^^^^^^^^^^
+E       AttributeError: 'bytes' object has no attribute 'as_hex'
+
+tests\test_custody.py:31: AttributeError
+______________ test_locked_and_spent_inputs_cannot_double_split _______________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x000001C4C32E1C60>
+
+    def test_locked_and_spent_inputs_cannot_double_split(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c);oid=offer(c,root)
+                                                                      ^^^^^^^^^^^^^
+
+tests\test_custody.py:52: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+c = <CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x000001C4C3354800>>
+lot = 'f2fa3b88f0812ba716e338b586d8191020022e78aa0d4f6b27bb46c94002618a'
+receiver = b'_\x7fz\xd0\xea\xb5A\x82l\xc5=\x01kP\x0ch\xb2:\xfc\x7f'
+nonce = 'nonce1', amounts = None, revision = 0, ttl = 60
+
+    def offer(c,lot,receiver=ALICE,nonce='nonce1',amounts=None,revision=0,ttl=60):
+>       return c.propose_transfer('manuals',lot,revision,json.dumps(amounts or {'guide':4,'license':2}),receiver.as_hex,nonce,ttl)
+                                                                                                        ^^^^^^^^^^^^^^^
+E       AttributeError: 'bytes' object has no attribute 'as_hex'
+
+tests\test_custody.py:31: AttributeError
+______________ test_downstream_holder_can_transfer_received_lot _______________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x000001C4C33A2CA0>
+
+    def test_downstream_holder_can_transfer_received_lot(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c);oid=offer(c,root)
+                                                                      ^^^^^^^^^^^^^
+
+tests\test_custody.py:60: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+c = <CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x000001C4C33F78F0>>
+lot = 'f2fa3b88f0812ba716e338b586d8191020022e78aa0d4f6b27bb46c94002618a'
+receiver = b'_\x7fz\xd0\xea\xb5A\x82l\xc5=\x01kP\x0ch\xb2:\xfc\x7f'
+nonce = 'nonce1', amounts = None, revision = 0, ttl = 60
+
+    def offer(c,lot,receiver=ALICE,nonce='nonce1',amounts=None,revision=0,ttl=60):
+>       return c.propose_transfer('manuals',lot,revision,json.dumps(amounts or {'guide':4,'license':2}),receiver.as_hex,nonce,ttl)
+                                                                                                        ^^^^^^^^^^^^^^^
+E       AttributeError: 'bytes' object has no attribute 'as_hex'
+
+tests\test_custody.py:31: AttributeError
+__________ test_cancellation_retains_revision_and_burns_sender_nonce __________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x000001C4C33A3060>
+
+    def test_cancellation_retains_revision_and_burns_sender_nonce(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c);oid=offer(c,root)
+                                                                      ^^^^^^^^^^^^^
+
+tests\test_custody.py:69: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+c = <CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x000001C4C34AB800>>
+lot = 'f2fa3b88f0812ba716e338b586d8191020022e78aa0d4f6b27bb46c94002618a'
+receiver = b'_\x7fz\xd0\xea\xb5A\x82l\xc5=\x01kP\x0ch\xb2:\xfc\x7f'
+nonce = 'nonce1', amounts = None, revision = 0, ttl = 60
+
+    def offer(c,lot,receiver=ALICE,nonce='nonce1',amounts=None,revision=0,ttl=60):
+>       return c.propose_transfer('manuals',lot,revision,json.dumps(amounts or {'guide':4,'license':2}),receiver.as_hex,nonce,ttl)
+                                                                                                        ^^^^^^^^^^^^^^^
+E       AttributeError: 'bytes' object has no attribute 'as_hex'
+
+tests\test_custody.py:31: AttributeError
+_____________ test_expiry_boundary_allows_anyone_cleanup_offline ______________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x000001C4C3504540>
+
+    def test_expiry_boundary_allows_anyone_cleanup_offline(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c);oid=offer(c,root)
+                                                                      ^^^^^^^^^^^^^
+
+tests\test_custody.py:79: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+c = <CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x000001C4C356E7E0>>
+lot = 'f2fa3b88f0812ba716e338b586d8191020022e78aa0d4f6b27bb46c94002618a'
+receiver = b'_\x7fz\xd0\xea\xb5A\x82l\xc5=\x01kP\x0ch\xb2:\xfc\x7f'
+nonce = 'nonce1', amounts = None, revision = 0, ttl = 60
+
+    def offer(c,lot,receiver=ALICE,nonce='nonce1',amounts=None,revision=0,ttl=60):
+>       return c.propose_transfer('manuals',lot,revision,json.dumps(amounts or {'guide':4,'license':2}),receiver.as_hex,nonce,ttl)
+                                                                                                        ^^^^^^^^^^^^^^^
+E       AttributeError: 'bytes' object has no attribute 'as_hex'
+
+tests\test_custody.py:31: AttributeError
+___________________ test_unauthorized_issue_propose_cancel ____________________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x000001C4C35C19E0>
+
+    def test_unauthorized_issue_propose_cancel(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c);oid=offer(c,root)
+                                                                      ^^^^^^^^^^^^^
+
+tests\test_custody.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+c = <CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x000001C4C361BEC0>>
+lot = 'f2fa3b88f0812ba716e338b586d8191020022e78aa0d4f6b27bb46c94002618a'
+receiver = b'_\x7fz\xd0\xea\xb5A\x82l\xc5=\x01kP\x0ch\xb2:\xfc\x7f'
+nonce = 'nonce1', amounts = None, revision = 0, ttl = 60
+
+    def offer(c,lot,receiver=ALICE,nonce='nonce1',amounts=None,revision=0,ttl=60):
+>       return c.propose_transfer('manuals',lot,revision,json.dumps(amounts or {'guide':4,'license':2}),receiver.as_hex,nonce,ttl)
+                                                                                                        ^^^^^^^^^^^^^^^
+E       AttributeError: 'bytes' object has no attribute 'as_hex'
+
+tests\test_custody.py:31: AttributeError
+________ test_changed_source_prevents_accept_without_destroying_offer _________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x000001C4C3A6A5C0>
+
+    def test_changed_source_prevents_accept_without_destroying_offer(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c);oid=offer(c,root)
+                                                                      ^^^^^^^^^^^^^
+
+tests\test_custody.py:104: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+c = <CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x000001C4C3AC7E30>>
+lot = 'f2fa3b88f0812ba716e338b586d8191020022e78aa0d4f6b27bb46c94002618a'
+receiver = b'_\x7fz\xd0\xea\xb5A\x82l\xc5=\x01kP\x0ch\xb2:\xfc\x7f'
+nonce = 'nonce1', amounts = None, revision = 0, ttl = 60
+
+    def offer(c,lot,receiver=ALICE,nonce='nonce1',amounts=None,revision=0,ttl=60):
+>       return c.propose_transfer('manuals',lot,revision,json.dumps(amounts or {'guide':4,'license':2}),receiver.as_hex,nonce,ttl)
+                                                                                                        ^^^^^^^^^^^^^^^
+E       AttributeError: 'bytes' object has no attribute 'as_hex'
+
+tests\test_custody.py:31: AttributeError
+___________ test_validator_recomputes_all_content_and_offer_binding ___________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x000001C4C3B1DA80>
+
+    def test_validator_recomputes_all_content_and_offer_binding(direct_vm,direct_deploy):
+>       c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c);oid=offer(c,root)
+                                                                      ^^^^^^^^^^^^^
+
+tests\test_custody.py:114: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+c = <CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x000001C4C3B1A5D0>>
+lot = 'f2fa3b88f0812ba716e338b586d8191020022e78aa0d4f6b27bb46c94002618a'
+receiver = b'_\x7fz\xd0\xea\xb5A\x82l\xc5=\x01kP\x0ch\xb2:\xfc\x7f'
+nonce = 'nonce1', amounts = None, revision = 0, ttl = 60
+
+    def offer(c,lot,receiver=ALICE,nonce='nonce1',amounts=None,revision=0,ttl=60):
+>       return c.propose_transfer('manuals',lot,revision,json.dumps(amounts or {'guide':4,'license':2}),receiver.as_hex,nonce,ttl)
+                                                                                                        ^^^^^^^^^^^^^^^
+E       AttributeError: 'bytes' object has no attribute 'as_hex'
+
+tests\test_custody.py:31: AttributeError
+_____________ test_invalid_receiver_ttl_and_revision_do_not_lock ______________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x000001C4C3E75440>
+
+    def test_invalid_receiver_ttl_and_revision_do_not_lock(direct_vm,direct_deploy):
+        c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c)
+>       with direct_vm.expect_revert('stale revision'):offer(c,root,revision=1)
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:132: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+c = <CalldataProxy for <_contract_batch_custody.BatchCustody object at 0x000001C4C3C72720>>
+lot = 'f2fa3b88f0812ba716e338b586d8191020022e78aa0d4f6b27bb46c94002618a'
+receiver = b'_\x7fz\xd0\xea\xb5A\x82l\xc5=\x01kP\x0ch\xb2:\xfc\x7f'
+nonce = 'nonce1', amounts = None, revision = 1, ttl = 60
+
+    def offer(c,lot,receiver=ALICE,nonce='nonce1',amounts=None,revision=0,ttl=60):
+>       return c.propose_transfer('manuals',lot,revision,json.dumps(amounts or {'guide':4,'license':2}),receiver.as_hex,nonce,ttl)
+                                                                                                        ^^^^^^^^^^^^^^^
+E       AttributeError: 'bytes' object has no attribute 'as_hex'
+
+tests\test_custody.py:31: AttributeError
+
+During handling of the above exception, another exception occurred:
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x000001C4C3E75440>
+
+    def test_invalid_receiver_ttl_and_revision_do_not_lock(direct_vm,direct_deploy):
+        c=deploy(direct_vm,direct_deploy);root=batch(direct_vm,c)
+>       with direct_vm.expect_revert('stale revision'):offer(c,root,revision=1)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:132: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py:158: in __exit__
+    self.gen.throw(value)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+message = 'stale revision'
+
+    @contextmanager
+    def expect_revert(self, message: Optional[str] = None):
+        """Context manager expecting the next call to revert.
+    
+        Catches ContractRollback (gl.rollback) and any Exception raised
+        by contract code (ValueError, RuntimeError, etc.). If *message*
+        is given, the exception text must contain it.
+        """
+        from .wasi_mock import ContractRollback
+    
+        self._expect_revert = message
+        self._expect_revert_any = message is None
+    
+        try:
+            yield
+            raise AssertionError(
+                f"Expected revert{f' with message: {message}' if message else ''}, but call succeeded"
+            )
+        except AssertionError:
+            raise
+        except ContractRollback as e:
+            if message is not None and message not in e.message:
+                raise AssertionError(
+                    f"Expected revert with message '{message}', got '{e.message}'"
+                )
+        except Exception as e:
+            if message is not None and message not in str(e):
+>               raise AssertionError(
+                    f"Expected revert with message '{message}', got '{e}'"
+                )
+E               AssertionError: Expected revert with message 'stale revision', got ''bytes' object has no attribute 'as_hex''
+
+..\..\..\tooling\.venv\Lib\site-packages\gltest\direct\vm.py:416: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_custody.py::test_named_acceptance_splits_conserved_public_manifest
+FAILED tests/test_custody.py::test_only_named_recipient_can_accept - Attribut...
+FAILED tests/test_custody.py::test_locked_and_spent_inputs_cannot_double_split
+FAILED tests/test_custody.py::test_downstream_holder_can_transfer_received_lot
+FAILED tests/test_custody.py::test_cancellation_retains_revision_and_burns_sender_nonce
+FAILED tests/test_custody.py::test_expiry_boundary_allows_anyone_cleanup_offline
+FAILED tests/test_custody.py::test_unauthorized_issue_propose_cancel - Attrib...
+FAILED tests/test_custody.py::test_changed_source_prevents_accept_without_destroying_offer
+FAILED tests/test_custody.py::test_validator_recomputes_all_content_and_offer_binding
+FAILED tests/test_custody.py::test_invalid_receiver_ttl_and_revision_do_not_lock
+10 failed, 10 passed in 2.72s

@@ -1,0 +1,114 @@
+WARNING: File `gltest.config.yaml` not found in the current directory, using default config, create a `gltest.config.yaml` file to manage multiple networks
+INFO: Clearing artifacts directory: artifacts
+INFO: Using the following configuration:
+INFO:   RPC URL: http://127.0.0.1:4000/api
+INFO:   Selected Network: localnet
+INFO:   Available networks: ['localnet', 'studionet', 'testnet_asimov', 'testnet_bradbury']
+INFO:   Selected chain type: localnet
+INFO:   Available chains: localnet, studionet, testnet_asimov, testnet_bradbury
+INFO:   Contracts directory: contracts
+INFO:   Artifacts directory: artifacts
+INFO:   Environment: .env
+INFO:   Default wait interval: 3000 ms
+INFO:   Default wait retries: 50
+INFO:   Leader only mode: False
+FF                                                                       [100%]
+================================== FAILURES ===================================
+__________ test_dot_repository_cannot_change_the_commit_namespace[.] __________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x000001989EE304A0>
+repo = '.'
+
+    @pytest.mark.parametrize('repo',['.','..'])
+    def test_dot_repository_cannot_change_the_commit_namespace(direct_vm,direct_deploy,repo):
+        c=deploy(direct_vm,direct_deploy)
+        values=copy.deepcopy(MANIFEST)
+        for i,item in enumerate(values):
+            body=(ROOT/('fixtures/public-readme.txt' if item['item_id']=='guide' else 'fixtures/public-license.txt')).read_text(encoding='utf-8')
+            item['url']='https://raw.githubusercontent.com/example/'+repo+'/'+'a'*40+'/main/file'+str(i)+'.txt'
+            direct_vm.mock_web(re.escape(item['url']),{'status':200,'body':body})
+>       with direct_vm.expect_revert('commit-pinned'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:46: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py:144: in __exit__
+    next(self.gen)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+message = 'commit-pinned'
+
+    @contextmanager
+    def expect_revert(self, message: Optional[str] = None):
+        """Context manager expecting the next call to revert.
+    
+        Catches ContractRollback (gl.rollback) and any Exception raised
+        by contract code (ValueError, RuntimeError, etc.). If *message*
+        is given, the exception text must contain it.
+        """
+        from .wasi_mock import ContractRollback
+    
+        self._expect_revert = message
+        self._expect_revert_any = message is None
+    
+        try:
+            yield
+>           raise AssertionError(
+                f"Expected revert{f' with message: {message}' if message else ''}, but call succeeded"
+            )
+E           AssertionError: Expected revert with message: commit-pinned, but call succeeded
+
+..\..\..\tooling\.venv\Lib\site-packages\gltest\direct\vm.py:404: AssertionError
+_________ test_dot_repository_cannot_change_the_commit_namespace[..] __________
+
+direct_vm = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+direct_deploy = <function direct_deploy.<locals>._deploy at 0x000001989EF55B20>
+repo = '..'
+
+    @pytest.mark.parametrize('repo',['.','..'])
+    def test_dot_repository_cannot_change_the_commit_namespace(direct_vm,direct_deploy,repo):
+        c=deploy(direct_vm,direct_deploy)
+        values=copy.deepcopy(MANIFEST)
+        for i,item in enumerate(values):
+            body=(ROOT/('fixtures/public-readme.txt' if item['item_id']=='guide' else 'fixtures/public-license.txt')).read_text(encoding='utf-8')
+            item['url']='https://raw.githubusercontent.com/example/'+repo+'/'+'a'*40+'/main/file'+str(i)+'.txt'
+            direct_vm.mock_web(re.escape(item['url']),{'status':200,'body':body})
+>       with direct_vm.expect_revert('commit-pinned'):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_custody.py:46: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\Administrator\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\contextlib.py:144: in __exit__
+    next(self.gen)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = VMContext(_sender=b'\xdc\x18\xaa=\xb8\xbc\x91\xa6\xe3\x90\xa3^}\x08\x11$o\xf3\xab\x01', _origin=None, _contract_addres...m_mocks_hit=set(), _live_web_handler=None, _live_llm_handler=None, _gl_call_hook=None, _traces=[], _trace_enabled=True)
+message = 'commit-pinned'
+
+    @contextmanager
+    def expect_revert(self, message: Optional[str] = None):
+        """Context manager expecting the next call to revert.
+    
+        Catches ContractRollback (gl.rollback) and any Exception raised
+        by contract code (ValueError, RuntimeError, etc.). If *message*
+        is given, the exception text must contain it.
+        """
+        from .wasi_mock import ContractRollback
+    
+        self._expect_revert = message
+        self._expect_revert_any = message is None
+    
+        try:
+            yield
+>           raise AssertionError(
+                f"Expected revert{f' with message: {message}' if message else ''}, but call succeeded"
+            )
+E           AssertionError: Expected revert with message: commit-pinned, but call succeeded
+
+..\..\..\tooling\.venv\Lib\site-packages\gltest\direct\vm.py:404: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_custody.py::test_dot_repository_cannot_change_the_commit_namespace[.]
+FAILED tests/test_custody.py::test_dot_repository_cannot_change_the_commit_namespace[..]
+2 failed, 20 deselected in 0.77s

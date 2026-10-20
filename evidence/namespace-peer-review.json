@@ -1,0 +1,37 @@
+{
+  "reviewer": "/root/genlayer_contract_pair02",
+  "reviewed_at": "2026-10-20T21:33:17.645770+00:00",
+  "reviewer_is_patch_author": false,
+  "reviewer_is_original_contract_author": true,
+  "scope": "Read-only review of only the namespace locator patch and its two actual SDK regression tests/recorded verification; no repeat full contract review, source edits or test rerun.",
+  "source": "batch_custody.py",
+  "source_sha256": "c75ee8fb9cc8ad22bf2f33f508e58a56b09dc274b7a272e1feddb09e6f63e8ae",
+  "status": "closed_for_namespace_patch",
+  "findings": [],
+  "observations": [
+    "Regex captures repository as group1 and file path as group2; '.' and '..' repository are explicitly rejected before source fetch.",
+    "File path safe-segment checks correctly moved to group2, retaining rejection of empty/dot/dotdot path segments; fixed lower-hex40 commit and host/query/encoding restrictions remain.",
+    "Both '.' and '..' negative tests call actual public registration APIs with correctly hashed/mock source data, so they exercise the locator boundary rather than a host substitute.",
+    "Content SHA256 binding remains intact; no live adversarial URL or transport-normalization exploit was executed."
+  ],
+  "recorded_verification": {
+    "genuine_red_tests_failed": 2,
+    "full_direct_tests_passed": 22,
+    "full_semantic_lint_schema_exit0": true,
+    "constructor_args": [],
+    "red_log": "tdd-dot-repository-red.log",
+    "green_report": "verification.json",
+    "tests_rerun_by_reviewer": false
+  },
+  "prior_full_review": {
+    "path": "peer-review.json",
+    "reviewer": "/root/genlayer_projects_pair02",
+    "source_sha256": "f759520160182c7da0cf4f0f31192c4367ed8bb620149f42e46b95aa63cb6c8a",
+    "superseded_for_current_source_hash": true,
+    "note": "Historical review retained unchanged. This narrow patch addendum covers the new namespace boundary; it does not claim that the earlier full review inspected these new bytes."
+  },
+  "live_consensus_tested": false,
+  "deployment": null,
+  "publication": null,
+  "audit": false
+}
